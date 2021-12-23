@@ -14,6 +14,16 @@ btn.addEventListener('click',function(){
     document.body.style .backgroundColor=hexColor;
 })
 
+color.addEventListener('click',copyDivToClipboard)
+
 getRandom = ()=>{
     return Math.floor(Math.random()*hex.length);
+}
+function copyDivToClipboard() {
+    var range = document.createRange();
+    range.selectNode(document.getElementById("copyVal"));
+    window.getSelection().removeAllRanges(); // clear current selection
+    window.getSelection().addRange(range); // to select text
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();// to deselect
 }
